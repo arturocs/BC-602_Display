@@ -11,8 +11,6 @@ export enum ActivityLevel {
 
 export interface MeasurementData {
     model: string; // Model number of the tanita device
-    //date: string;
-    //time: string;
     date : Date; // Date of measurement
     guest: boolean;
     sex: Sex;

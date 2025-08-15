@@ -69,11 +69,9 @@ function parseLine(line: string): MeasurementData {
     }
 }
 
-export async function parseFile(file: File): Promise<string> {
+export async function parseFile(file: File): Promise<MeasurementData[]> {
     const text = await file.text();
     console.log("File content:", text);
     const lines = text.split('\n').filter(line => line.trim() !== '');
-    const measurements: MeasurementData[] = lines.map(parseLine);
-    console.log("Parsed measurements:", measurements);
-    return text
+    return lines.map(parseLine);
 }
