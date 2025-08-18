@@ -9,7 +9,7 @@ const config = {
 
 	kit: {
 		paths: {
-			base: "/SimpleQuizMaker",
+			base: "/BC-602_Display" // Adjust this path according to your GitHub Pages repository name,
 		},
 		// ...
 		adapter: adapterGhpages(

@@ -1,18 +1,17 @@
 export enum Sex {
-    Male = '1',
-    Female ='0'
+    Male = 'Male', // '1' 
+    Female ='Female', // '0'
 }
 
 export enum ActivityLevel {
-    Inactive = '1',
-    ModeratelyActive = '2',
-    VeryActive = '3'
+    Inactive = 'Inactive', // '1'
+    ModeratelyActive = 'Moderately Active', // '2'
+    VeryActive = 'Very Active', // '3'
 }
 
 export interface MeasurementData {
     model: string; // Model number of the tanita device
-    date: string;
-    time: string;
+    date : Date; // Date of measurement
     guest: boolean;
     sex: Sex;
     age: number;
