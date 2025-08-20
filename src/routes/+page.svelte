@@ -1,6 +1,7 @@
 <script lang="ts">
     import LineChart1 from "$lib/components/LineChart1.svelte";
-        import LineChart2 from "$lib/components/LineChart2.svelte";
+    import LineChart2 from "$lib/components/LineChart2.svelte";
+    import Table from "$lib/components/Table.svelte";
 
     import UploadButton from "$lib/components/UploadButton.svelte";
     import "../app.css";
@@ -44,4 +45,6 @@
 <LineChart2
     {measurements}
 
-></LineChart2>
+<Table
+    data={measurements}
+/>
