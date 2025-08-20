@@ -17,24 +17,24 @@ export interface MeasurementData {
     age: number;
     height: number; // cm
     activity_level: ActivityLevel;
-    weight: number; // Kg
+    total_weight: number; // Kg
     bmi: number;
 
     // Fat as percentage of weight
-    fat_body: number;
-    fat_right_arm: number;
-    fat_left_arm: number;
-    fat_right_leg: number;
-    fat_left_leg: number;
-    fat_trunk: number;
+    total_fat: number;
+    right_arm_fat: number;
+    left_arm_fat: number;
+    right_leg_fat: number;
+    left_leg_fat: number;
+    trunk_fat: number;
 
     // Muscle mass as Kg
-    muscle_body: number;
-    muscle_right_arm: number;
-    muscle_left_arm: number;
-    muscle_right_leg: number;
-    muscle_left_leg: number;
-    muscle_trunk: number;
+    total_muscle: number;
+    right_arm_muscle: number;
+    left_arm_muscle: number;
+    right_leg_muscle: number;
+    left_leg_muscle: number;
+    trunk_muscle: number;
 
     bone_mass: number;
 
