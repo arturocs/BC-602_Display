@@ -2,32 +2,10 @@
 <script lang="ts">
     import { onMount, onDestroy } from "svelte";
     import * as echarts from "echarts";
+    import { formatDate, formatKey } from "$lib/utils";
 
-    // Ajusta este import si usas otro path/definición
-    type MeasurementData = {
-        model: string;
-        date: Date | string;
-        [k: string]: number | string | Date | null | undefined;
-    };
+    const { data = [], xKey = "date", keys = [], title = "", log=false } = $props();
 
-    const {
-        data = [],
-        xKey = "date",
-        keys = null,
-        title = "",
-        area = false,
-        formatX = (v: any) => {
-            const d = v instanceof Date ? v : new Date(v);
-            // Formato corto local; ajusta al gusto
-            return new Intl.DateTimeFormat(undefined, {
-                year: "2-digit",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-            }).format(d);
-        }
-    } = $props();
     $effect(() => {
         console.log("Data updated:", data);
     });
@@ -35,25 +13,13 @@
     let chart: echarts.ECharts | null = null;
     let resizeObserver: ResizeObserver | null = null;
 
-    function inferKeys(rows: MeasurementData[], xKey: string): string[] {
-        if (!rows?.length) return [];
-        const sample = rows[0];
-        return Object.keys(sample)
-            .filter((k) => k !== xKey && k !== "model")
-            .filter((k) => typeof sample[k] === "number");
-    }
-
     function buildOption() {
         const rows = data ?? [];
-        const seriesKeys = (
-            keys && keys.length ? keys : inferKeys(rows, xKey)
-        ) as string[];
+        const xValues = rows.map((r) => r?.[xKey]).map((v) => formatDate(v));
 
-        const xValues = rows.map((r) => r?.[xKey]).map((v) => formatX(v));
-
-        const series = seriesKeys.map((name) => {
+        const series = keys.map((key) => {
             const sdata = rows.map((r) => {
-                const val = r?.[name];
+                const val = r?.[key];
                 // Convertir a número seguro; mantener nulls para gaps
                 const num =
                     typeof val === "number"
@@ -65,23 +31,20 @@
             });
 
             const serie: echarts.SeriesOption = {
-                name,
+                name: formatKey(key),
                 type: "line",
-                stack: "total",
                 connectNulls: true,
-                showSymbol: false,
                 emphasis: { focus: "series" },
                 data: sdata,
             };
 
-            if (area) (serie as any).areaStyle = {};
             return serie;
         });
 
         const option: echarts.EChartsOption = {
             title: title ? { text: title, left: "center" } : undefined,
             tooltip: { trigger: "axis" },
-            legend: { top: 10, type: "scroll" },
+            legend: { bottom: -0, type: "scroll" },
             grid: {
                 left: 24,
                 right: 24,
@@ -90,7 +53,7 @@
                 containLabel: true,
             },
             xAxis: { type: "category", boundaryGap: false, data: xValues },
-            yAxis: { type: "value" },
+            yAxis: { type: log ? "log":"value" },
             series,
         };
 

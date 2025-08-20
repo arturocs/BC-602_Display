@@ -75,3 +75,19 @@ export async function parseFile(file: File): Promise<MeasurementData[]> {
     const lines = text.split('\n').filter(line => line.trim() !== '');
     return lines.map(parseLine);
 }
+
+export function formatDate(d: Date) {
+    return new Intl.DateTimeFormat(undefined, {
+        year: "2-digit",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+    }).format(d);
+}
+
+export function formatKey(key: string): string {
+    return key
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase())
+}
