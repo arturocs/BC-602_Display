@@ -24,19 +24,19 @@
                 name: "Weight",
                 type: "line",
                 stack: "Total",
-                data: sortedData.map((m) => m.weight),
+                data: sortedData.map((m) => m.total_weight),
             },
             {
                 name: "Body Fat",
                 type: "line",
                 stack: "Fat",
-                data: sortedData.map((m) => m.fat_body),
+                data: sortedData.map((m) => m.total_fat),
             },
             {
                 name: "Body Muscle",
                 type: "line",
                 stack: "Muscle",
-                data: sortedData.map((m) => m.muscle_body),
+                data: sortedData.map((m) => m.total_muscle),
             },
             {
                 name: "Water",

@@ -1,6 +1,8 @@
 <script lang="ts">
     import LineChart1 from "$lib/components/LineChart1.svelte";
-        import LineChart2 from "$lib/components/LineChart2.svelte";
+    import LineChart2 from "$lib/components/LineChart2.svelte";
+    import StaticData from "$lib/components/StaticData.svelte";
+    import Table from "$lib/components/Table.svelte";
 
     import UploadButton from "$lib/components/UploadButton.svelte";
     import "../app.css";
@@ -13,34 +15,38 @@
 <UploadButton bind:measurements></UploadButton>
 
 <LineChart1
+    title="Weight and Muscle Composition (Kg)"
     data={measurements}
     keys={[
-        "weight",
-        "muscle_body",
-        "muscle_right_arm",
-        "muscle_left_arm",
-        "muscle_right_leg",
-        "muscle_left_leg",
-        "muscle_trunk",
+        "total_weight",
+        "total_muscle",
+        "right_arm_muscle",
+        "left_arm_muscle",
+        "right_leg_muscle",
+        "left_leg_muscle",
+        "trunk_muscle",
         "bone_mass",
     ]}
 ></LineChart1>
 
-
 <LineChart1
+    title="Fat Percentage and Distribution"
     data={measurements}
     keys={[
-        "fat_body",
-        "fat_right_arm",
-        "fat_left_arm",
-        "fat_right_leg",
-        "fat_left_leg",
-        "fat_trunk",
+        "total_fat",
+        "right_arm_fat",
+        "left_arm_fat",
+        "right_leg_fat",
+        "left_leg_fat",
+        "trunk_fat",
         "water",
     ]}
 ></LineChart1>
 
-<LineChart2
-    {measurements}
+<StaticData
+    data={measurements}
+></StaticData>
 
-></LineChart2>
+<Table
+    data={measurements}
+/>
