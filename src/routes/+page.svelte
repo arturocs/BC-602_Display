@@ -12,6 +12,12 @@
     });
 </script>
 
+<header class="navbar mb-4">
+    <div class="flex-1 ml-4">
+        <span class="font-bold text-xl">BC-602 Data Viewer</span>
+    </div>
+</header>
+
 <UploadButton bind:measurements></UploadButton>
 
 <LineChart
