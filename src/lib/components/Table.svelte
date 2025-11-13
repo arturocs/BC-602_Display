@@ -25,5 +25,12 @@
                 </tr>
             {/each}
         </tbody>
+        <tfoot>
+            <tr>
+                {#each getColumns(columns, data) as col}
+                    <th class="text-sm font-bold">{col}</th>
+                {/each}
+            </tr>
+        </tfoot>
     </table>
 </div>
