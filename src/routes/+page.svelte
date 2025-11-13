@@ -1,7 +1,6 @@
 <script lang="ts">
     import DownloadButton from "$lib/components/DownloadButton.svelte";
-    import LineChart1 from "$lib/components/LineChart1.svelte";
-    import LineChart2 from "$lib/components/LineChart2.svelte";
+    import LineChart from "$lib/components/LineChart.svelte";
     import StaticData from "$lib/components/StaticData.svelte";
     import Table from "$lib/components/Table.svelte";
 
@@ -15,7 +14,7 @@
 
 <UploadButton bind:measurements></UploadButton>
 
-<LineChart1
+<LineChart
     title="Weight and Muscle Composition (Kg)"
     data={measurements}
     keys={[
@@ -28,9 +27,9 @@
         "trunk_muscle",
         "bone_mass",
     ]}
-></LineChart1>
+></LineChart>
 
-<LineChart1
+<LineChart
     title="Fat Percentage and Distribution"
     data={measurements}
     keys={[
@@ -42,7 +41,7 @@
         "trunk_fat",
         "water",
     ]}
-></LineChart1>
+></LineChart>
 
 <StaticData
     data={measurements}
