@@ -17,7 +17,9 @@
             {#each reversed_data as row}
                 <tr>
                     {#each getColumns(columns, data, false) as col}
-                        <td class="text-sm">{formatValue((row as any)[col])} {getUnits(col)}</td
+                        <td class="text-sm">
+                            {formatValue((row as any)[col])}
+                            {getUnits(col)}</td
                         >
                     {/each}
                 </tr>

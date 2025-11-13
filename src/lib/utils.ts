@@ -128,7 +128,7 @@ export function getUnits(key: string, show_tanita_rating: boolean = false, add_p
         units = 'cm';
     } else if (key === 'daily_calorie_intake') {
         units = 'Kcal/day';
-    } 
+    }
     return add_parentheses && units ? `(${units})` : units;
 }
 

@@ -1,6 +1,6 @@
 export enum Sex {
     Male = 'Male', // '1' 
-    Female ='Female', // '0'
+    Female = 'Female', // '0'
 }
 
 export enum ActivityLevel {
@@ -11,7 +11,7 @@ export enum ActivityLevel {
 
 export interface MeasurementData {
     model: string; // Model number of the tanita device
-    date : Date; // Date of measurement
+    date: Date; // Date of measurement
     guest: boolean;
     sex: Sex;
     age: number;

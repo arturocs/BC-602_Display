@@ -43,13 +43,9 @@
     ]}
 ></LineChart>
 
-<StaticData
-    data={measurements}
-></StaticData>
+<StaticData data={measurements}></StaticData>
 
-<Table
-    data={measurements}
-/>
+<Table data={measurements} />
 
 {#if measurements.length > 0}
     <DownloadButton data={measurements}></DownloadButton>

@@ -4,7 +4,13 @@
     import * as echarts from "echarts";
     import { formatDate, formatKey } from "$lib/utils";
 
-    const { data = [], xKey = "date", keys = [], title = "", log=false } = $props();
+    const {
+        data = [],
+        xKey = "date",
+        keys = [],
+        title = "",
+        log = false,
+    } = $props();
 
     $effect(() => {
         console.log("Data updated:", data);
@@ -53,7 +59,7 @@
                 containLabel: true,
             },
             xAxis: { type: "category", boundaryGap: false, data: xValues },
-            yAxis: { type: log ? "log":"value" },
+            yAxis: { type: log ? "log" : "value" },
             series,
         };
 
