@@ -4,8 +4,8 @@
     let reversed_data = $derived(data.slice().reverse());
 </script>
 
-<div class="overflow-x-auto w-full">
-    <table class="table table-zebra w-full">
+<div class="overflow-x-auto ">
+    <table class="table table-zebra table-xs">
         <thead class="bg-base-200">
             <tr>
                 {#each getColumns(columns, data) as col}
