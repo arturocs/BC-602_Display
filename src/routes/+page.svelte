@@ -51,7 +51,31 @@
 
 <StaticData data={measurements}></StaticData>
 
-<Table data={measurements} />
+<Table
+    columns={[
+        "date",
+        "total_weight",
+        "bmi",
+        "total_fat",
+        "right_arm_fat",
+        "left_arm_fat",
+        "right_leg_fat",
+        "left_leg_fat",
+        "trunk_fat",
+        "total_muscle",
+        "right_arm_muscle",
+        "left_arm_muscle",
+        "right_leg_muscle",
+        "left_leg_muscle",
+        "trunk_muscle",
+        "bone_mass",
+        "visceral_fat",
+        "daily_calorie_intake",
+        "metabolic_age",
+        "water",
+    ]}
+    data={measurements}
+/>
 
 {#if measurements.length > 0}
     <DownloadButton data={measurements}></DownloadButton>
