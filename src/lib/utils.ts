@@ -114,3 +114,21 @@ export function formatValue(val: any) {
     return String(val);
 }
 
+export function getUnits(key: string, show_tanita_rating: boolean = false, add_parentheses: boolean = false): string {
+    let units = ''
+    if (key === 'visceral_fat') {
+        units = show_tanita_rating ? 'tanita rating' : '';
+    } else if (key.includes('fat') || key == "water") {
+        units = '%';
+    } else if (key.includes('muscle') || ['total_weight', 'bone_mass'].includes(key)) {
+        units = 'Kg';
+    } else if (key.includes('age')) {
+        units = 'years';
+    } else if (key === 'height') {
+        units = 'cm';
+    } else if (key === 'daily_calorie_intake') {
+        units = 'Kcal/day';
+    } 
+    return add_parentheses && units ? `(${units})` : units;
+}
+
