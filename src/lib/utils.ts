@@ -63,7 +63,7 @@ function parseLine(line: string): MeasurementData {
         trunk_muscle: parseFloat(values[21]),
         bone_mass: parseFloat(values[22]),
         visceral_fat: parseFloat(values[23]),
-        metabolic_rate: parseFloat(values[24]),
+        daily_calorie_intake: parseFloat(values[24]),
         metabolic_age: parseFloat(values[25]),
         water: parseFloat(values[26]),
     }

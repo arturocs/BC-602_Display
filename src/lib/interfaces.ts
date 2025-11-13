@@ -40,7 +40,7 @@ export interface MeasurementData {
 
     visceral_fat: number; // Tanita rating number [1-59]
 
-    metabolic_rate: number; // Kcal/day
+    daily_calorie_intake: number; // Kcal/day
     metabolic_age: number; // Years
     water: number; // %
 }
