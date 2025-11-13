@@ -28,11 +28,11 @@
     }
 </script>
 
-<div class="card bg-base-100 shadow-xl w-full max-w-lg">
+<div class="card bg-base-100 shadow-xl w-full max-w-xs">
     <div class="card-body">
         <h2 class="card-title text-lg mb-2">User Information</h2>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 gap-4">
             <div>
                 <span class="font-bold">Model:</span>
                 <div>{formatText("model")}</div>
@@ -53,7 +53,7 @@
                 <div>{formatNumeric("height")}</div>
             </div>
 
-            <div class="col-span-2">
+            <div >
                 <span class="font-bold">Activity level:</span>
                 <div>{formatText("activity_level")}</div>
             </div>
