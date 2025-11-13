@@ -132,3 +132,14 @@ export function getUnits(key: string, show_tanita_rating: boolean = false, add_p
     return add_parentheses && units ? `(${units})` : units;
 }
 
+export function generateCSV(data: MeasurementData[], columns: string[]): Blob {
+    const header = getColumns(columns, data, false)
+        .map((col) => `"${formatKey(col)} ${getUnits(col, true, true)}"`)
+        .join(",") + "\n";
+    const rows = data.map(row => {
+        return getColumns(columns, data, false).map(col => `"${formatValue((row as any)[col])}"`
+        ).join(",");
+    }).join("\n");
+    const csvContent = header + rows;
+    return new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+}
