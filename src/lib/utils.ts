@@ -76,7 +76,7 @@ export async function parseFile(file: File): Promise<MeasurementData[]> {
     return lines.map(parseLine);
 }
 
-export function formatDate(d: Date) {
+export function formatDate(d: Date): string {
     return new Intl.DateTimeFormat(undefined, {
         year: "2-digit",
         month: "2-digit",
@@ -87,7 +87,30 @@ export function formatDate(d: Date) {
 }
 
 export function formatKey(key: string): string {
-    return key
+    return key === 'bmi' ? 'BMI' : key
         .replace(/_/g, ' ')
         .replace(/\b\w/g, char => char.toUpperCase())
 }
+
+// Función para obtener las claves a mostrar
+export function getColumns(columns: string[], data: MeasurementData[], format: boolean = true) {
+    const f = format ? formatKey : (v: string) => v;
+    if (columns.length)
+        return columns.map(f);
+    if (!data?.length)
+        return [];
+    return Object.keys(data[0]).map(f);
+}
+
+export function formatValue(val: any) {
+    if (val == null) return "-";
+    if (typeof val === "boolean") return val ? "Yes" : "No";
+    if (val instanceof Date) {
+        return formatDate(val);
+    }
+    if (typeof val === "number") {
+        return Number(val.toFixed(2));
+    }
+    return String(val);
+}
+
