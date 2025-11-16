@@ -28,34 +28,34 @@
     }
 </script>
 
-<div class="card bg-base-100 shadow-xl w-full max-w-xs">
-    <div class="card-body">
+<div class="card bg-base-100 shadow max-w-fit m-8">
+    <div class="card-body m-2">
         <h2 class="card-title text-lg mb-2">User Information</h2>
 
-        <div class="grid grid-cols-1 gap-4">
-            <div>
-                <span class="font-bold">Model:</span>
-                <div>{formatText("model")}</div>
+        <div class="grid grid-cols-5 gap-8">
+            <div class="flex">
+                <span class="font-bold mr-4">Model:</span>
+                <span>{formatText("model")}</span>
             </div>
 
-            <div>
-                <span class="font-bold">Sex:</span>
-                <div>{formatText("sex")}</div>
+            <div class="flex">
+                <span class="font-bold mr-4">Sex:</span>
+                <span>{formatText("sex")}</span>
             </div>
 
-            <div>
-                <span class="font-bold">Age:</span>
-                <div>{formatNumeric("age")}</div>
+            <div class="flex">
+                <span class="font-bold mr-4">Age:</span>
+                <span>{formatNumeric("age")}</span>
             </div>
 
-            <div>
-                <span class="font-bold">Height (cm):</span>
-                <div>{formatNumeric("height")}</div>
+            <div class="flex">
+                <span class="font-bold mr-4">Height (cm):</span>
+                <span>{formatNumeric("height")}</span>
             </div>
 
-            <div >
-                <span class="font-bold">Activity level:</span>
-                <div>{formatText("activity_level")}</div>
+            <div class="flex">
+                <span class="font-bold mr-4">Activity level:</span>
+                <span>{formatText("activity_level")}</span>
             </div>
         </div>
     </div>
