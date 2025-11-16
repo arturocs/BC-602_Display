@@ -19,5 +19,5 @@
 
 <!-- Button styled with TailwindCSS + DaisyUI -->
 <label for="fileInput" class="btn btn-primary cursor-pointer">
-	Upload File
+	Select File
 </label>
