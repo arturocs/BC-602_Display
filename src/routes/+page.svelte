@@ -1,4 +1,5 @@
 <script lang="ts">
+    import CheckboxList from "$lib/components/CheckboxList.svelte";
     import DownloadButton from "$lib/components/DownloadButton.svelte";
     import LineChart from "$lib/components/LineChart.svelte";
     import StaticData from "$lib/components/StaticData.svelte";
@@ -18,7 +19,7 @@
     </div>
 </header>
 
-<UploadButton bind:measurements></UploadButton>
+<UploadButton bind:measurements/>
 
 <LineChart
     title="Weight and Muscle Composition (Kg)"
@@ -33,7 +34,7 @@
         "trunk_muscle",
         "bone_mass",
     ]}
-></LineChart>
+/>
 
 <LineChart
     title="Fat Percentage and Distribution"
@@ -50,7 +51,36 @@
     height={500}
 />
 
-<StaticData data={measurements}></StaticData>
+<StaticData data={measurements}/>
+
+<CheckboxList items={ [  
+    "model",
+    "date",
+    "guest",
+    "sex",
+    "age",
+    "height",
+    "activity_level",
+    "total_weight",
+    "bmi",
+    "total_fat",
+    "right_arm_fat",
+    "left_arm_fat",
+    "right_leg_fat",
+    "left_leg_fat",
+    "trunk_fat",
+    "total_muscle",
+    "right_arm_muscle",
+    "left_arm_muscle",
+    "right_leg_muscle",
+    "left_leg_muscle",
+    "trunk_muscle",
+    "bone_mass",
+    "visceral_fat",
+    "daily_calorie_intake",
+    "metabolic_age",
+    "water",
+]}/>
 
 <Table
     columns={[
@@ -79,5 +109,5 @@
 />
 
 {#if measurements.length > 0}
-    <DownloadButton data={measurements}></DownloadButton>
+    <DownloadButton data={measurements}/>
 {/if}
