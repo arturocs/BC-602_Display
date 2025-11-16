@@ -10,6 +10,7 @@
         keys = [],
         title = "",
         log = false,
+        height = 420,
     } = $props();
 
     $effect(() => {
@@ -100,12 +101,10 @@
     });
 </script>
 
-<!-- Contenedor -->
-<div bind:this={chartEl} class="chart-root"></div>
+<div bind:this={chartEl} class="chart-root" style:height="{height}px"></div>
 
 <style>
     .chart-root {
         width: 100%;
-        height: 420px; /* ajusta según tu layout */
     }
 </style>

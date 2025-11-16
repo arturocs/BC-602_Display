@@ -47,7 +47,8 @@
         "trunk_fat",
         "water",
     ]}
-></LineChart>
+    height={500}
+/>
 
 <StaticData data={measurements}></StaticData>
 
