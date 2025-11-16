@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Checkbox from "./Checkbox.svelte";
-    import type { MeasurementData } from "$lib/interfaces";
+    import { formatKey } from "$lib/utils";
+
     let { items = [] as string[], selectedItems = [] as string[] } = $props();
     function toggleItem(item: string) {
         if (selectedItems.includes(item)) {
@@ -11,19 +11,18 @@
     }
 </script>
 
-{#each items as item}
-    <!-- <Checkbox
-        checked={selectedItems.includes(item)}
-        label={item}
-        onchange={toggleItem}
-    /> -->
-    <label class="flex items-center space-x-2 cursor-pointer">
-        <input
-            type="checkbox"
-            class="checkbox"
-            checked={selectedItems.includes(item)}
-            onchange={() => toggleItem(item)}
-        />
-        <span>{item}</span>
-    </label>
-{/each}
+<div class=" max-w-1/8 bg-base-100 shadow m-8 p-4 rounded">
+    {#each items as item}
+        <label
+            class="flex items-center space-x-2 cursor-pointer px-2 py-1 hover:bg-base-200 rounded"
+        >
+            <input
+                type="checkbox"
+                class="checkbox"
+                checked={selectedItems.includes(item)}
+                onchange={() => toggleItem(item)}
+            />
+            <span>{formatKey(item)}</span>
+        </label>
+    {/each}
+</div>
